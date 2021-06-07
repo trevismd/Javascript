@@ -10,6 +10,7 @@
     <!-- Normalize browser styles -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
     <link href="app.css" rel="stylesheet">
+    <script type="text/javascript" src="data.js"></script>
     <!-- Link to app.js with defer till HTML render -->
     <script defer src="app.js"></script>
 </head>
@@ -23,19 +24,19 @@
     <form id="dino-compare">
         <div class="form-container">
             <p>Name:</p>
-            <input id="name" class="form-field__full" type="name" name="name">
+            <input id="name" class="form-field__full" name="name">
             <p>Height</p>
-            <label>Feet: <input id="feet" class="form-field__short" type="number" name="feet"></label>
-            <label>inches: <input id="inches" class="form-field__short" type="number" name="inches"></label>
+            <label>Feet: <input id="feet" class="form-field__short" type="number" name="feet" step="1" min="0"></label>
+            <label>inches: <input id="inches" class="form-field__short" type="number" name="inches" step="0.1" min="0"></label>
             <p>Weight:</p>
-            <label><input id="weight" class="form-field__full" type="number" name="weight">lbs</label>
+            <label><input id="weight" class="form-field__full" type="number" name="weight" min="0">lbs</label>
             <p>Diet:</p>
             <select id="diet" class="form-field__full" name="diet">
-                <option>Herbavor</option>
-                <option>Omnivor</option>
-                <option>Carnivor</option>
+                <option value="herbivore">Herbivore</option>
+                <option value="omnivore">Omnivore</option>
+                <option value="carnivore">Carnivore</option>
             </select>
-            <div id="btn">Compare Me!</div>
+            <div id="btn" onclick="showTiles()">Compare Me!</div>
         </div>
     </form>
     <!-- .grid to attach tiles to -->
